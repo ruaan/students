@@ -2,3 +2,5 @@
 ./test/**/*.test.js
 --reporter spec
 --recursive
+--bail
+--timeout 20s

@@ -1,0 +1,1 @@
+{"parent":null,"pid":32290,"argv":["/usr/local/Cellar/node/14.3.0_1/bin/node","/usr/local/bin/npm","run","test"],"execArgv":[],"cwd":"/Users/ruaan/Projects/students","time":1600924448271,"ppid":32288,"coverageFilename":"/Users/ruaan/Projects/students/.nyc_output/57043db0-32e9-46e4-88b6-52b8a5892bd1.json","externalId":"","uuid":"57043db0-32e9-46e4-88b6-52b8a5892bd1","files":[]}
