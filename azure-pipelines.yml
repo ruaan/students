@@ -22,10 +22,19 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '6.x'
-- task: Bash@2
+- task: Npm@1
   inputs:
-    targetType: 'inline'
-    script: 'npm install'
+    command: 'install'
+
+- task: Grunt@0
+  inputs:
+    gruntFile: 'gruntfile.js'
+    targets: 'buildProd'
+    gruntCli: 'node_modules/grunt-cli/bin/grunt'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    enableCodeCoverage: true
+    testFiles: 'test/*.js'
 
 - task: Bash@3
   inputs:
