@@ -10,16 +10,21 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: NodeTool@0
+  inputs:
+    versionSpec: '6.x'
+    checkLatest: true
+- task: Npm@1
+  inputs:
+    command: 'install'
+- task: Run Test
+  inputs:
+    targetType: 'inline'
+    script: 'npm test'
 - task: Docker@2
   inputs:
     containerRegistry: 'dockerhubv2'
     repository: 'ruaan/students'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+    tags: $(Build.BuildId)
