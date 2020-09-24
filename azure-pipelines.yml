@@ -26,11 +26,6 @@ steps:
   inputs:
     command: 'install'
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: 'npm test'
-
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
