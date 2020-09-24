@@ -17,7 +17,7 @@ steps:
   inputs:
     command: 'install'
 
-- task: Run Test
+- task: Bash@test
   inputs:
     targetType: 'inline'
     script: 'npm test'
