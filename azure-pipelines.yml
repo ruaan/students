@@ -36,10 +36,6 @@ steps:
     enableCodeCoverage: true
     testFiles: 'test/*.js'
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: 'npm test'
 
 - task: SonarCloudPublish@1
   inputs:
