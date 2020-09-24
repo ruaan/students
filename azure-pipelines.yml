@@ -10,16 +10,46 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'ruaan-github'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'students'
+    cliProjectName: 'students'
+    cliSources: '.'
+- task: NodeTool@0
+  inputs:
+    versionSpec: '6.x'
+- task: Npm@1
+  inputs:
+    command: 'install'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: Grunt@0
+  inputs:
+    gruntFile: 'gruntfile.js'
+    targets: 'buildProd'
+    gruntCli: 'node_modules/grunt-cli/bin/grunt'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    enableCodeCoverage: true
+    testFiles: 'test/*.js'
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'npm test'
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+- task: SonarCloudAnalyze@1
 - task: Docker@2
   inputs:
-    containerRegistry: 'dockerhubv2'
+    containerRegistry: 'DockerHub'
     repository: 'ruaan/students'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+    tags: $(Build.BuildId)
+
