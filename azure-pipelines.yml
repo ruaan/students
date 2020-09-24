@@ -28,7 +28,7 @@ steps:
 
 - task: Grunt@0
   inputs:
-    gruntFile: 'gruntfile.js'
+    gruntFile: 'Gruntfile.js'
     targets: 'buildProd'
     gruntCli: 'node_modules/grunt-cli/bin/grunt'
     publishJUnitResults: true
