@@ -1,5 +1,5 @@
 # students
-
+[![Build Status](https://dev.azure.com/ruaan0658/Student-Enrolment/_apis/build/status/AWS%20Deployment?branchName=master)](https://dev.azure.com/ruaan0658/Student-Enrolment/_build/latest?definitionId=20&branchName=master)
 a [Sails v1](https://sailsjs.com) application
 
 
