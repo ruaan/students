@@ -12,7 +12,7 @@ pool:
 steps:
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'SonarCloud'
+    SonarCloud: 'azuresonar'
     organization: 'ruaan-github'
     scannerMode: 'CLI'
     configMode: 'manual'
@@ -21,21 +21,15 @@ steps:
     cliSources: '.'
 - task: NodeTool@0
   inputs:
-    versionSpec: '6.x'
+    versionSpec: '14.x'
 - task: Npm@1
   inputs:
     command: 'install'
 
-- task: Grunt@0
+- task: Npm@1
   inputs:
-    gruntFile: 'Gruntfile.js'
-    targets: 'buildProd'
-    gruntCli: 'node_modules/grunt-cli/bin/grunt'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    enableCodeCoverage: true
-    testFiles: 'test/*.js'
-
+    command: 'custom'
+    customCommand: 'npm test'
 
 - task: SonarCloudPublish@1
   inputs:
@@ -43,7 +37,7 @@ steps:
 - task: SonarCloudAnalyze@1
 - task: Docker@2
   inputs:
-    containerRegistry: 'DockerHub'
+    containerRegistry: 'DcokerHub'
     repository: 'ruaan/students'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
