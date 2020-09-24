@@ -12,15 +12,70 @@ a [Sails v1](https://sailsjs.com) application
 + [Professional / enterprise options](https://sailsjs.com/enterprise)
 
 
-### Version info
+## Table of Contents (Optional)
 
-This app was originally generated on Tue Sep 22 2020 20:19:46 GMT+0800 (Singapore Standard Time) using Sails v1.3.1.
+> If your `README` has a lot of info, section headers might be nice.
 
-<!-- Internally, Sails used [`sails-generate@2.0.0`](https://github.com/balderdashy/sails-generate/tree/v2.0.0/lib/core-generators/new). -->
+- [Installation](#installation)
+- [Running](#running)
+- [Testing](#testing)
+- [APis](#apis)
+- [FAQ](#faq)
+- [Support](#support)
+- [License](#license)
+
+
+---
 
 
 
-<!--
-Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
--->
+## Installation
+
+
+### Setup
+
+
+### Step 1
+
+```shell
+$ npm install
+```
+### Step 2
+> make sure sails.js is installed
+
+```shell
+$ npm -g install sails
+
+```
+### Step 3
+> change config -> datastores.js to your mysql settings
+
+```shell
+adapter: 'sails-mysql',
+url: 'mysql://xx:xx@xx:3306/students',
+
+```
+
+### Run
+
+
+
+```shell
+$ sails lift
+```
+
+### Test
+
+
+```shell
+$ npm test
+```
+
+### Api Endpoints
+
+ >  GET http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/fetchStudents?class=3A
+ >  GET http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/fetchStudents?id=223333445
+ >  POST http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/student
+ >  PUT http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/student
+ >  Delete http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/student
 
