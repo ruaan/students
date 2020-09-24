@@ -53,10 +53,10 @@ module.exports = {
       attributes.class = reg.param('class');
     }
     sails.models.student.update({
-      id: reg.param.id
+      id: reg.param('id')
     }, attributes)
       .then(students => {
-        return res.ok(students[0]);
+        return res.ok(students);
       })
       .catch(err => res.serverError(err));
   },

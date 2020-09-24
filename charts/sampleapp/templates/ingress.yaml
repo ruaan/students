@@ -1,6 +1,6 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "students.fullname" . -}}
-{{- $serviceName := include "students.name" . -}}
+{{- $fullName := include "sampleapp.fullname" . -}}
+{{- $serviceName := include "sampleapp.name" . -}}
 {{- $servicePort := .Values.service.port -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -32,5 +32,5 @@ spec:
           - path: /
             backend:
               serviceName: {{ $serviceName }}
-              servicePort: {{ $servicePort }}
+              servicePort: {{ $servicePort }} 
 {{- end }}

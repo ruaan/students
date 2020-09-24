@@ -35,7 +35,7 @@ module.exports.routes = {
 
   'POST /student' : 'StudentController.create',
   'GET /fetchStudents' : 'StudentController.find',
-  'PUTS /student' : 'StudentController.update',
+  'PUT /student' : 'StudentController.update',
   'DELETE /student' : 'StudentController.delete',
 
 };

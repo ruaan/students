@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "students.fullname" . }}
+  name: {{ template "sampleapp.fullname" . }}
   labels:
-    app: {{ template "students.name" . }}
-    chart: {{ template "students.chart" . }}
+    app: {{ template "sampleapp.name" . }}
+    chart: {{ template "sampleapp.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "students.name" . }}
+      app: {{ template "sampleapp.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "students.name" . }}
+        app: {{ template "sampleapp.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
@@ -46,7 +46,7 @@ spec:
             - name: {{ $ref | upper }}_{{ $key | upper }}
               valueFrom:
                 secretKeyRef:
-                  name: {{ template "students.fullname" $root }}-{{ $ref }}
+                  name: {{ template "sampleapp.fullname" $root }}-{{ $ref }}
                   key: {{ $key }}
             {{- end }}
             {{- end }}
