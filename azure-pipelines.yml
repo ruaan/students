@@ -28,7 +28,7 @@ steps:
 
 - task: Grunt@0
   inputs:
-    gruntFile: 'gruntfile.js'
+    gruntFile: 'Gruntfile.js'
     targets: 'buildProd'
     gruntCli: 'node_modules/grunt-cli/bin/grunt'
     publishJUnitResults: true
@@ -36,10 +36,6 @@ steps:
     enableCodeCoverage: true
     testFiles: 'test/*.js'
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: 'npm test'
 
 - task: SonarCloudPublish@1
   inputs:
