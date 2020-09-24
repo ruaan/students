@@ -22,9 +22,10 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '6.x'
-- task: Npm@1
+- task: Bash@2
   inputs:
-    command: 'install'
+    targetType: 'inline'
+    script: 'npm install'
 
 - task: Bash@3
   inputs:
