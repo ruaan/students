@@ -26,10 +26,10 @@ steps:
   inputs:
     command: 'install'
 
-- task: Npm@1
+- task: Bash@3
   inputs:
-    command: 'custom'
-    customCommand: 'npm test'
+    targetType: 'inline'
+    script: 'npm test'
 
 - task: SonarCloudPublish@1
   inputs:
