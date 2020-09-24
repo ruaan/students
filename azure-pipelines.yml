@@ -37,7 +37,7 @@ steps:
 - task: SonarCloudAnalyze@1
 - task: Docker@2
   inputs:
-    containerRegistry: 'DockerHub'
+    containerRegistry: 'DcokerHub'
     repository: 'ruaan/students'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
