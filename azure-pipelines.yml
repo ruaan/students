@@ -22,8 +22,9 @@ steps:
     script: 'npm test'
 - task: Docker@2
   inputs:
-    containerRegistry: 'dockerhubv2'
+    containerRegistry: 'DockerHub'
     repository: 'ruaan/students'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: $(Build.BuildId)
+
