@@ -73,13 +73,13 @@ $ npm test
 
 ### Api Endpoints
 
-#  GET http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/fetchStudents?class=3A
+####  GET http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/fetchStudents?class=3A
 
-#  GET http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/fetchStudents?id=223333445
+####  GET http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/fetchStudents?id=223333445
 
-#  POST http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/student
+####  POST http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/student
 
-#  PUT http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/student
+####  PUT http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/student
 
-#  Delete http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/student
+####  Delete http://students-alb-1505487689.ap-southeast-1.elb.amazonaws.com/student
 
